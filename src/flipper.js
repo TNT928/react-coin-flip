@@ -18,14 +18,13 @@ class Flipper extends Component {
     let randSide = Math.floor(Math.random() * 2) + 1;
 
     this.setState((st) => {
-      let newState = {
-        ...st,
-        currentCoin: randSide,
+     return{
+       currentCoin: randSide,
         flips: st.flips + 1,
-      };
-      randSide === 1 ? (newState.flipsH += 1) : (newState.flipsT += 1);
-
-      return newState;
+        flipsH: st.flipsH + (randSide === 1 ?  1 : 0),
+        flipsT: st.flipsT + (randSide === 2 ?  1 : 0)
+     }
+      
     });
   }
 
